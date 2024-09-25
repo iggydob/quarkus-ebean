@@ -1,12 +1,9 @@
 package org.acme;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
-
 
 /**
  * Example JPA entity defined as a Panache Entity.
@@ -27,19 +24,20 @@ import java.util.UUID;
  * }
  * }
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@RequiredArgsConstructor
-@Getter
-@Setter
 @Table(name = "books", schema = "public")
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "book_id")
-    private UUID bookId;
+//    @GeneratedValue(strategy = GenerationType.UUID)
+//    @Column(name = "book_id")
+    private UUID id;
     private String title;
     private Integer year;
     @Column(name = "author_id")
-    private Integer authorId    ;
+    private Integer authorId;
 }
+

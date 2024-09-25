@@ -1,6 +1,6 @@
 -- This file allow to write SQL commands that will be emitted in test and dev.
 -- The commands are commented as their support depends of the database
-INSERT INTO public.books (book_id, title, year, author_id)
+INSERT INTO public.books (id, title, year, author_id)
 VALUES ('419fb9d0-bd6b-4491-8d4b-aeb2ceaa2ede', 'Philosopher''s Stone', 1997, 1),
        ('f1a87829-2006-4b38-a662-3619c00ea8c3', 'Chamber of Secrets', 1998, 1),
        ('de6d54e8-95d0-4987-994f-75f2954f11e1', 'Prisoner Of Azkaban', 1999, 1),
