@@ -1,19 +1,14 @@
-greeting:
-  message: "hello"
-
-server:
-  port: 8080
-
 quarkus:
-  application:
-    name: usermanagement
-  datasource:
-    db-kind: postgresql
+  http:
+    port: 8080
+
+ebean:
+  dbSchema: my_app      # use this schema rather than public
+  migration:
+    run: true           # run database migrations on startup
+
+datasource:
+  db:
     username: portal
     password: portal
-    jdbc:
-      url: jdbc:postgresql://localhost:30002/books
-#    ddl:
-  hibernate-orm:
-    database:
-      generation: create-drop
+    url: jdbc:postgresql://localhost:30002/books

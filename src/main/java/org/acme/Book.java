@@ -1,42 +1,31 @@
 package org.acme;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
-/**
- * Example JPA entity defined as a Panache Entity.
- * An ID field of Long type is provided, if you want to define your own ID field extends <code>PanacheEntityBase</code> instead.
- * <p>
- * This uses the active record pattern, you can also use the repository pattern instead:
- * .
- * <p>
- * Usage (more example on the documentation)
- * <p>
- * {@code
- * public void doSomething() {
- * MyEntity entity1 = new MyEntity();
- * entity1.field = "field-1";
- * entity1.persist();
- * <p>
- * List<MyEntity> entities = MyEntity.listAll();
- * }
- * }
- */
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
-@Table(name = "books", schema = "public")
+@Table(schema = "public", name = "books")
 public class Book {
-
+    /**
+     * <p>When we annotate a property with <code>@Id</code> Ebean will automatically assign an
+     * appropriate <code>Id</code> generator if the type is a <code>number</code> type or <code>UUID</code> type.
+     * <p> That is, with Ebean it is effectively redundant to also add the <code>@GeneratedValue</code> annotation.
+     * <p> This behaviour can be disabled using idGeneratorAutomatic configuration property.
+     */
     @Id
-//    @GeneratedValue(strategy = GenerationType.UUID)
-//    @Column(name = "book_id")
     private UUID id;
     private String title;
     private Integer year;
+
     @Column(name = "author_id")
     private Integer authorId;
 }
