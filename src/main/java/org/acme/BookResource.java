@@ -15,9 +15,13 @@ public class BookResource {
     @Inject
     BookRepository bookRepository;
 
+    @Inject
+    BookMapper bookMapper;
+
     @GET
     @Path("/{id}")
-    public Optional<Book> getById(@PathParam("id") UUID id) {
+    public Optional<Book> getById(
+            @PathParam("id") UUID id) {
         return bookRepository.getById(id);
     }
 
@@ -28,12 +32,15 @@ public class BookResource {
 
     @POST
     @Path("/create")
-//    @Consumes(MediaType.APPLICATION_JSON)
-    public void create(Book bookDto) {
-        Book book = new Book();
-        book.setTitle(bookDto.getTitle());
-        book.setYear(bookDto.getYear());
-        book.setAuthorId(bookDto.getAuthorId());
-        bookRepository.create(book);
+    public void create(
+            BookDto bookDto) {
+        bookRepository.create(bookMapper.mapToBook(bookDto));
+    }
+
+    @PATCH
+    @Path("/delete/{id}")
+    public void delete(
+            @PathParam("id") UUID id) {
+        bookRepository.delete(id);
     }
 }
