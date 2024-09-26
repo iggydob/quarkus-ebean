@@ -1,4 +1,5 @@
 quarkus:
+  profile: prod
   http:
     port: 8080
 
@@ -6,6 +7,9 @@ ebean:
   dbSchema: my_app      # use this schema rather than public
   migration:
     run: true           # run database migrations on startup
+  ddl:
+    generate: true
+    run: true
 
 datasource:
   db:

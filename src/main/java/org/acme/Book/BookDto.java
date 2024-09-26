@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.Book;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

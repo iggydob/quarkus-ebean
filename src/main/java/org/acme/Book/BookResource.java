@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.Book;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;

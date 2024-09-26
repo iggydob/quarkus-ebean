@@ -1,9 +1,9 @@
-package org.acme;
+package org.acme.Book;
 
 import io.ebean.DB;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.extern.slf4j.Slf4j;
-import org.acme.query.QBook;
+import org.acme.Book.query.QBook;
 
 import java.util.List;
 import java.util.Optional;

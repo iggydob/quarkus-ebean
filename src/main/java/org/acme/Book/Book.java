@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.Book;
 
 import io.ebean.annotation.SoftDelete;
 import jakarta.persistence.*;

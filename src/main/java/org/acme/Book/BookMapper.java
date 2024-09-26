@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.Book;
 
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;

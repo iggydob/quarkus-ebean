@@ -33,11 +33,12 @@ dependencies {
 
     //Ebean
     annotationProcessor("io.ebean:querybean-generator:14.1.0")
-//    implementation 'org.avaje.composite:logback:1.1'
     implementation 'io.ebean:ebean-postgres:14.1.0'
     implementation 'io.ebean:ebean-querybean:14.1.0'
     testImplementation 'io.ebean:ebean-test:14.1.0'
-//    testImplementation 'org.avaje.composite:junit:1.1'
+
+    // Configurator
+//    implementation 'io.smallrye.config:smallrye-config:3.9.1-SNAPSHOT'
 }
 
 ebean {
