@@ -22,6 +22,7 @@ public class BookResource {
     @Path("/{id}")
     public Optional<Book> getById(
             @PathParam("id") UUID id) {
+        System.out.println("Hello world");
         return bookRepository.getById(id);
     }
 

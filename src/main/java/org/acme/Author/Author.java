@@ -1,13 +1,14 @@
 package org.acme.Author;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.acme.BaseDomain;
+import org.acme.Book.Book;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,11 +18,14 @@ import org.acme.BaseDomain;
 @Table(schema = "public", name = "authors")
 public class Author extends BaseDomain {
 
-    @Column (name = "full_name")
+    @Column(name = "full_name")
     private String fullName;
 
-//    @OneToMany(fetch = FetchType.LAZY,
-//            mappedBy = "author",
-//            cascade = CascadeType.ALL)
-//    private List<Book> books;
+    /**
+     * The <code>mappedBy</code> attribute should be defined in most @OneToMany. The mappedBy attribute effectively refers to the other side of the relationship.
+     */
+
+    @OneToMany(/*fetch = FetchType.LAZY*/
+            mappedBy = "author")
+    private List<Book> books;
 }

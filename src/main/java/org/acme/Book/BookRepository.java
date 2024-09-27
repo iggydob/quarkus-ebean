@@ -1,6 +1,7 @@
 package org.acme.Book;
 
 import io.ebean.DB;
+import io.ebean.Query;
 import io.smallrye.common.constraint.NotNull;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,7 @@ import java.util.UUID;
 public class BookRepository {
 
     public List<Book> getAll() {
-        return new QBook()
-                .orderBy()
-                .year.asc()
+        return DB.find(Book.class)
                 .findList();
     }
 
@@ -26,10 +25,12 @@ public class BookRepository {
     }
 
     public Book getByUUID(UUID uuid) {
-        return DB.find(Book.class)
+        Book book = new Book();
+        book = DB.find(Book.class)
                 .where()
                 .eq("id", uuid)
                 .findOne();
+        return book;
     }
 
     public Optional<Book> getById(UUID id) {
