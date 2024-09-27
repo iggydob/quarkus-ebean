@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Path("/api")
+@Path("/books")
 @RequiredArgsConstructor
 public class BookResource {
 
